@@ -16,7 +16,7 @@ import javax.annotation.Nonnull;
  * Represents a link to another property.  References can be used to specify that
  two properties on different objects are in fact, the same property.  This also
  has the added benefit of cutting down on CZML file size.
- 
+
  The formatted reference string contains the identifier of the target object followed
  by a hashtag (#) and one or more property names, each separated by a period (.).
  Any hash symbols or periods that exist in the reference identifier or property must
@@ -153,35 +153,39 @@ public class Reference implements IEquatable<Reference> {
 
     private static void parse(String value, @Nonnull String[] identifier, @Nonnull ArrayList<String>[] values) {
         identifier[0] = StringHelper.empty;
-        values[0] = new ArrayList<String>();
+        values[0] = new ArrayList<>();
+
+        StringBuilder token = new StringBuilder();
         boolean inIdentifier = true;
         boolean isEscaped = false;
-        String token = StringHelper.empty;
-        for (int i = 0; i < value.length(); i++) {
-            char c = value.charAt(i);
+
+        for (char c : value.toCharArray()) {
             if (isEscaped) {
-                token += c;
+                token.append(c);
                 isEscaped = false;
             } else if (c == '\\') {
                 isEscaped = true;
             } else if (inIdentifier && c == '#') {
-                identifier[0] = token;
+                identifier[0] = token.toString();
                 inIdentifier = false;
-                token = StringHelper.empty;
+                token.setLength(0); // Clear the StringBuilder
             } else if (!inIdentifier && c == '.') {
-                if (StringHelper.isNullOrEmpty(token)) {
+                if (token.length() == 0) {
                     throw new ArgumentException(CesiumLocalization.getInvalidReferenceString());
                 }
-                values[0].add(token);
-                token = StringHelper.empty;
+                values[0].add(token.toString());
+                token.setLength(0); // Clear the StringBuilder
             } else {
-                token += c;
+                token.append(c);
             }
         }
-        values[0].add(token);
-        if (StringHelper.isNullOrEmpty(token)) {
+
+        if (token.length() == 0) {
             throw new ArgumentException(CesiumLocalization.getInvalidReferenceString());
         }
+
+        values[0].add(token.toString());
+
         if (inIdentifier) {
             throw new ArgumentException(CesiumLocalization.getInvalidReferenceString());
         }
