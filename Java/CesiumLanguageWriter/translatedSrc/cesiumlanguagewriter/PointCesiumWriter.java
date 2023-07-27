@@ -64,7 +64,7 @@ public class PointCesiumWriter extends CesiumPropertyWriter<PointCesiumWriter> {
     * The name of the {@code translucencyByDistance} property.
     */
     @Nonnull
-    public static final String TranslucencyByDistancePropertyName = "translucencyByDistance";
+    public static final String TransByDistPropertyName = "translucencyByDistance";
     /**
     * The name of the {@code distanceDisplayCondition} property.
     */
@@ -120,7 +120,7 @@ public class PointCesiumWriter extends CesiumPropertyWriter<PointCesiumWriter> {
     @Nonnull
     private final Lazy<NearFarScalarCesiumWriter> m_translucencyByDistance = new Lazy<NearFarScalarCesiumWriter>(new Func1<NearFarScalarCesiumWriter>() {
         public NearFarScalarCesiumWriter invoke() {
-            return new NearFarScalarCesiumWriter(TranslucencyByDistancePropertyName);
+            return new NearFarScalarCesiumWriter(TransByDistPropertyName);
         }
     }, false);
     @Nonnull

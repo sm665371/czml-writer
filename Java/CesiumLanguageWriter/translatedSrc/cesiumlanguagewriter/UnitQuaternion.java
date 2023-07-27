@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 /**
  * A set of 4-dimensional coordinates used to represent rotation in 3-dimensional space.  This
  represents an 'alias' rotation which transforms coordinates by modifying the underlying coordinate
- basis rather than modifying the coordinates themselves. To transform a {@link Cartesian} 
+ basis rather than modifying the coordinates themselves. To transform a {@link Cartesian}
  with this rotation, see {@link Cartesian#rotate(UnitQuaternion)}.
  * <p>
  <p>
@@ -57,7 +57,7 @@ public final class UnitQuaternion implements IEquatable<UnitQuaternion>, Immutab
     * @param y The Y coordinate.
     * @param z The Z coordinate.
     * @param magnitude On input, an array with one element.  On return, the array is populated with
-    
+
     the magnitude of the original set of coordinates.
     * @exception ArithmeticException The magnitude of the provided coordinates must not be zero.
     * @exception NotFiniteNumberException The magnitude of the provided coordinates must not be infinite.
