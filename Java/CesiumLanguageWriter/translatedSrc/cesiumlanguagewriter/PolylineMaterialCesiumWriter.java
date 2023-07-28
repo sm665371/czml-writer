@@ -1,19 +1,10 @@
 package cesiumlanguagewriter;
 
 
-import agi.foundation.compatibility.*;
 import agi.foundation.compatibility.Func1;
 import agi.foundation.compatibility.Lazy;
 import cesiumlanguagewriter.advanced.*;
-import cesiumlanguagewriter.CheckerboardMaterialCesiumWriter;
-import cesiumlanguagewriter.GridMaterialCesiumWriter;
-import cesiumlanguagewriter.ImageMaterialCesiumWriter;
-import cesiumlanguagewriter.PolylineArrowMaterialCesiumWriter;
-import cesiumlanguagewriter.PolylineDashMaterialCesiumWriter;
-import cesiumlanguagewriter.PolylineGlowMaterialCesiumWriter;
-import cesiumlanguagewriter.PolylineOutlineMaterialCesiumWriter;
-import cesiumlanguagewriter.SolidColorMaterialCesiumWriter;
-import cesiumlanguagewriter.StripeMaterialCesiumWriter;
+
 import javax.annotation.Nonnull;
 
 /**

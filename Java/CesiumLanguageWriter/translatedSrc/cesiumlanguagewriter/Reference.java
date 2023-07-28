@@ -23,15 +23,15 @@ import javax.annotation.Nonnull;
  be properly escaped with a backslash (\\) in order for the reference to be valid.
  */
 @SuppressWarnings({
-    "unused",
-    "deprecation",
-    "serial"
+        "unused",
+        "deprecation",
+        "serial"
 })
 public class Reference implements IEquatable<Reference> {
     /**
-    * Creates a new instance from an escaped reference string.
-    * @param value The reference string.
-    */
+     * Creates a new instance from an escaped reference string.
+     * @param value The reference string.
+     */
     public Reference(String value) {
         m_value = value;
         final String[] out$m_identifier$0 = new String[1];
@@ -42,10 +42,10 @@ public class Reference implements IEquatable<Reference> {
     }
 
     /**
-    * Creates a new instance from an identifier and property.
-    * @param identifier The identifier of the object which contains the referenced property.
-    * @param propertyName The property on the referenced object.
-    */
+     * Creates a new instance from an identifier and property.
+     * @param identifier The identifier of the object which contains the referenced property.
+     * @param propertyName The property on the referenced object.
+     */
     public Reference(String identifier, String propertyName) {
         m_identifier = identifier;
         final ArrayList<String> tempCollection$0 = new ArrayList<String>();
@@ -55,10 +55,10 @@ public class Reference implements IEquatable<Reference> {
     }
 
     /**
-    * Creates a new instance from an identifier and a list of properties.
-    * @param identifier The identifier of the object which contains the referenced property.
-    * @param propertyNames A list of property names with each property being a sub-property of the previous one.
-    */
+     * Creates a new instance from an identifier and a list of properties.
+     * @param identifier The identifier of the object which contains the referenced property.
+     * @param propertyNames A list of property names with each property being a sub-property of the previous one.
+     */
     public Reference(String identifier, Iterable<String> propertyNames) {
         m_identifier = identifier;
         m_properties = ListHelper.create(propertyNames);
@@ -66,40 +66,40 @@ public class Reference implements IEquatable<Reference> {
     }
 
     /**
-    * Gets the identifier of the object which contains the referenced property.
-    */
+     * Gets the identifier of the object which contains the referenced property.
+     */
     public final String getIdentifier() {
         return m_identifier;
     }
 
     /**
-    * Gets the list of properties to be indexed on the referenced object.
-    */
+     * Gets the list of properties to be indexed on the referenced object.
+     */
     public final Iterable<String> getPropertyNames() {
         return m_properties;
     }
 
     /**
-    * Gets the escaped CZML value of the reference.
-    */
+     * Gets the escaped CZML value of the reference.
+     */
     public final String getValue() {
         return m_value;
     }
 
     /**
-    * Gets the escaped CZML value of the reference.
-    * @return The escaped CZML value of the reference.
-    */
+     * Gets the escaped CZML value of the reference.
+     * @return The escaped CZML value of the reference.
+     */
     @Override
     public String toString() {
         return m_value;
     }
 
     /**
-    * Indicates whether another object is exactly equal to this instance.
-    * @param obj The object to compare to this instance.
-    * @return {@code true} if {@code obj} is an instance of this type and represents the same value as this instance; otherwise, {@code false}.
-    */
+     * Indicates whether another object is exactly equal to this instance.
+     * @param obj The object to compare to this instance.
+     * @return {@code true} if {@code obj} is an instance of this type and represents the same value as this instance; otherwise, {@code false}.
+     */
     @Override
     public boolean equals(Object obj) {
         Reference reference = obj instanceof Reference ? (Reference) obj : null;
@@ -107,18 +107,18 @@ public class Reference implements IEquatable<Reference> {
     }
 
     /**
-    * Indicates whether another object is exactly equal to this instance.
-    * @param other The object to compare to this instance.
-    * @return {@code true} if {@code other} is an instance of this type and represents the same value as this instance; otherwise, {@code false}.
-    */
+     * Indicates whether another object is exactly equal to this instance.
+     * @param other The object to compare to this instance.
+     * @return {@code true} if {@code other} is an instance of this type and represents the same value as this instance; otherwise, {@code false}.
+     */
     public final boolean equalsType(Reference other) {
         return ObjectHelper.equals(m_value, other.m_value);
     }
 
     /**
-    * Returns a hash code for this instance, which is suitable for use in hashing algorithms and data structures like a hash table.
-    * @return A hash code for the current object.
-    */
+     * Returns a hash code for this instance, which is suitable for use in hashing algorithms and data structures like a hash table.
+     * @return A hash code for the current object.
+     */
     @Override
     public int hashCode() {
         return m_value.hashCode();
@@ -139,8 +139,8 @@ public class Reference implements IEquatable<Reference> {
     }
 
     /**
-    * Escape \ # . characters with a \
-    */
+     * Escape \ # . characters with a \
+     */
     private static void appendAndEscape(StringBuilder builder, String str) {
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
